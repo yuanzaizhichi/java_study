@@ -1,5 +1,7 @@
 package com.cxf.datastructures.queue;
 
+import java.util.Scanner;
+
 /**
  * 数组模拟队列
  */
@@ -10,6 +12,54 @@ public class ArrayQueue {
     private int[] arr;//数据数组
 
     public static void main(String[] args) {
+        ArrayQueue arrayQueue = new ArrayQueue(3);
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+        char key = ' ';
+        while (flag) {
+            System.out.println("s(show):显示队列");
+            System.out.println("e(exit):退出程序");
+            System.out.println("a(add):入队");
+            System.out.println("g(get):出队");
+            System.out.println("h(head):查看队列头的数据");
+
+            key = scanner.next().charAt(0);
+            switch (key) {
+                case 's':
+                    try {
+                        arrayQueue.show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 'a':
+                    System.out.println("请输入一个数");
+                    int num = scanner.nextInt();
+                    arrayQueue.add(num);
+                    break;
+                case 'g':
+                    try {
+                        int value = arrayQueue.get();
+                        System.out.println("出队的数据是" + value);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 'h':
+                    try {
+                        int value = arrayQueue.headQueue();
+                        System.out.println("当前头数据为" + value);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 'e':
+                    System.out.println("退出程序");
+                    flag = false;
+                default:
+                    break;
+            }
+        }
 
     }
 
@@ -57,5 +107,13 @@ public class ArrayQueue {
         for (int i = 0; i < arr.length; i++) {
             System.out.printf("arr[%d]=%d\n", i, arr[i]);
         }
+    }
+
+    //查看队列头数据
+    public int headQueue() throws Exception {
+        if (isEmpty()) {
+            throw new Exception("队列为空，无法查看头数据");
+        }
+        return arr[front + 1];
     }
 }
