@@ -16,7 +16,8 @@ public class CircleQueue {
     private int[] arr;
 
     public static void main(String[] args) {
-        CircleQueue arrayQueue = new CircleQueue(3);
+        //实际队列容量为3，在容量中空余1位作为约定，以便实现环形，实现复用
+        CircleQueue circleQueue = new CircleQueue(4);
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         char key = ' ';
@@ -31,30 +32,30 @@ public class CircleQueue {
             switch (key) {
                 case 's':
                     try {
-                        arrayQueue.show();
+                        circleQueue.show();
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        System.out.println("队列为空");
                     }
                     break;
                 case 'a':
                     System.out.println("请输入一个数");
                     int num = scanner.nextInt();
-                    arrayQueue.add(num);
+                    circleQueue.add(num);
                     break;
                 case 'g':
                     try {
-                        int value = arrayQueue.get();
+                        int value = circleQueue.get();
                         System.out.println("出队的数据是" + value);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        System.out.println("队列为空，无法取出数据");
                     }
                     break;
                 case 'h':
                     try {
-                        int value = arrayQueue.headQueue();
+                        int value = circleQueue.headQueue();
                         System.out.println("当前头数据为" + value);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        System.out.println("队列为空，无法查看头数据");
                     }
                     break;
                 case 'e':
@@ -90,34 +91,40 @@ public class CircleQueue {
             System.out.println("队列已满，无法添加数据");
             return;
         }
-        rear++;
         arr[rear] = n;
+        rear = (rear + 1) % maxSize;
     }
 
     //取出数据（出队列）
     public int get() throws Exception {
         if (isEmpty()) {
-            throw new Exception("队列为空，无法取出数据");
+            throw new Exception();
         }
-        front++;
-        return arr[front];
+        int val = arr[front];
+        front = (front + 1) % maxSize;
+        return val;
     }
 
     //显示队列所有数据
     public void show() throws Exception {
         if (isEmpty()) {
-            throw new Exception("队列为空");
+            throw new Exception();
         }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.printf("arr[%d]=%d\n", i, arr[i]);
+        for (int i = front; i < front + size(); i++) {
+            System.out.printf("arr[%d]=%d\n", i % maxSize, arr[i % maxSize]);
         }
+    }
+
+    //返回有效队列中有效数据个数
+    public int size() {
+        return (rear + maxSize - front) % maxSize;
     }
 
     //查看队列头数据
     public int headQueue() throws Exception {
         if (isEmpty()) {
-            throw new Exception("队列为空，无法查看头数据");
+            throw new Exception();
         }
-        return arr[front + 1];
+        return arr[front];
     }
 }
