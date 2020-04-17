@@ -3,16 +3,20 @@ package com.cxf.datastructures.queue;
 import java.util.Scanner;
 
 /**
- * 数组模拟"队列"
+ * 数组模拟"环形队列"
  */
-public class ArrayQueue {
-    private int maxSize;//数组最大容量
-    private int front;//队列头,指向头数据的前一个位置
-    private int rear;//队列尾，指向尾数据
-    private int[] arr;//数据数组
+public class CircleQueue {
+    //数组最大容量
+    private int maxSize;
+    //队列头,指向头数据,初始值为0
+    private int front;
+    //队列尾，指向尾数据的后一个位置,初始值为0
+    private int rear;
+    //数据数组
+    private int[] arr;
 
     public static void main(String[] args) {
-        ArrayQueue arrayQueue = new ArrayQueue(3);
+        CircleQueue arrayQueue = new CircleQueue(3);
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         char key = ' ';
@@ -63,16 +67,16 @@ public class ArrayQueue {
 
     }
 
-    public ArrayQueue(int arrMaxSize) {
+    public CircleQueue(int arrMaxSize) {
         this.maxSize = arrMaxSize;
-        this.front = -1;
-        this.rear = -1;
+        this.front = 0;
+        this.rear = 0;
         this.arr = new int[maxSize];
     }
 
     //判断队列是否满
     public boolean isFull() {
-        return rear == maxSize - 1;
+        return (rear + 1) % maxSize == front;
     }
 
     //判断队列是否空
