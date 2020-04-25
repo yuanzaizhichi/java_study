@@ -80,7 +80,6 @@ fabric.properties
 out
 gen
 /target
-src/main/resources/
 target/classes/com/cxf/datastructures/
 target/generated-sources/
 target/generated-test-sources/
