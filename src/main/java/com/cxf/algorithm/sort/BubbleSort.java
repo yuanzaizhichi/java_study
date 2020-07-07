@@ -12,7 +12,7 @@ public class BubbleSort {
 
         //交换变量
         int temp;
-        //判断上一次是否进行了排序，可提前结束排序
+        //判断上一次是否进行了排序，可提前结束排序(优化)
         boolean flag = false;
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
