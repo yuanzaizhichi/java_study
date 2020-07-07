@@ -1,26 +1,35 @@
 package com.cxf.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * 冒泡排序
  */
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] arr = {3, 9, -1, 10, -2};
+//        int[] arr = {3, 9, -1, 10, -2};
+        int[] arr = {3, 9, -1, 10, 20};
 
+        //交换变量
         int temp;
-        for (int i = 0; i < arr.length; i++) {
+        //判断上一次是否进行了排序，可提前结束排序
+        boolean flag = false;
+        for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
+                    flag = true;
                     temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                 }
             }
-            for (int z = 0; z < arr.length; z++) {
-                System.out.print(arr[z] + " ");
+            if (!flag) {
+                break;
+            } else {
+                flag = false;
             }
-            System.out.println();
+            System.out.println("第" + (i + 1) + "次排序");
+            System.out.println(Arrays.toString(arr));
         }
-
     }
 }
