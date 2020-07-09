@@ -1,5 +1,6 @@
 package com.cxf.test;
 
+import com.work.entity.SysUser;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,8 +16,11 @@ import java.util.regex.Pattern;
 
 public class HttpDemo {
     public static void main(String[] args) {
-        String url = "http://autobuild.1357.cn/App/SaasThirdOrg/company";
-        String json = "[{\"originId\":\"1\",\"parentOriginId\":\"6wvxpxm08upe57s43zqm89gladvuckzz\",\"name\":\"test\",\"shortName\":\"test\",\"remark\":\"备注\"}]";
+    }
+
+    public static void httpSend(SysUser sysuser) {
+        String url = "http://autobuild.1357.cn/App/SaasThirdUser/user";
+        String json = "[{\"originId\":\"" + sysuser.getId() + "\",\"parentOriginId\":\"6wvxpxm08upe57s43zqm89gladvuckzz\",\"parentPositionId\":\"NtgcojlT03yJcA5\",\"name\":\"" + sysuser.getName() + "\",\"tel\":\"" + sysuser.getPhone() + "\"}]";
         HttpPost httpPost = null;
         String result = null;
         try {
