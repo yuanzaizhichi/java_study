@@ -14,6 +14,20 @@
     <artifactId>java_study</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <repositories>
+        <repository>
+            <id>Cesc Repository</id>
+            <name>Cesc Repository</name>
+            <url>http://maven.cescit.cn/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -59,6 +73,18 @@
             <artifactId>junit</artifactId>
             <version>RELEASE</version>
             <scope>test</scope>
+        </dependency>
+        <!--ewater核心包-->
+        <dependency>
+            <groupId>com.cesc.ewater</groupId>
+            <artifactId>ewatermscore</artifactId>
+            <version>2.2.10</version>
+        </dependency>
+        <!--ewater微服务api-->
+        <dependency>
+            <groupId>com.cesc.ewater</groupId>
+            <artifactId>ewatermsapi</artifactId>
+            <version>2.2.11</version>
         </dependency>
     </dependencies>
 
