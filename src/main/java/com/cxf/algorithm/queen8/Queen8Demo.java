@@ -1,4 +1,4 @@
-package com.cxf.datastructures.queen8;
+package com.cxf.algorithm.queen8;
 
 /**
  * 八皇后问题
@@ -14,6 +14,9 @@ public class Queen8Demo {
 
     /**
      * 放置皇后的方法
+     * 触发递归回溯：1、某个皇后找不到自己的位置，需要上一个皇后往后移一位
+     * 2、八个皇后都找到了位置（即执行show方法），然后继续寻找下一个放置方案，即第一个情况
+     *
      * @param n
      */
     public void put(int n){
