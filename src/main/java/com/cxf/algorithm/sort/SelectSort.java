@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 选择排序
+ * 最好最坏时间复杂度：n^2
  */
 public class SelectSort {
     public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class SelectSort {
                     minIndex = j;
                 }
             }
+            //发现最小值改变才进行交换
             if (min != arr[i]) {
                 arr[minIndex] = arr[i];
                 arr[i] = min;

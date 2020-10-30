@@ -9,7 +9,7 @@ public class ShellSort {
     public static void main(String[] args) {
 
         int[] arr = {2, 6, 8, 1, 7, 3, 4, 0, -8, -3};
-        shellSort2(arr);
+        shellSort1(arr);
 
     }
 

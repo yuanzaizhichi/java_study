@@ -1,32 +1,25 @@
 package com.cxf.algorithm.sort;
 
+import java.util.Arrays;
+
 /**
  * 堆排序
  */
 public class HeapSort {
 
     public static void main(String[] args) {
-        int[] arr = {50, 10, 90, 30, 70, 40, 80, 60, 20};
-        System.out.println("排序之前：");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-
-        // 堆排序
+        int[] arr = {50, 30, 90, 30, 70, 40, 80, 60, 20};
+        System.out.println("排序前： " + Arrays.toString(arr));
         heapSort(arr);
-
-        System.out.println();
-        System.out.println("排序之后：");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        System.out.println("排序后： " + Arrays.toString(arr));
     }
 
     /**
      * 堆排序
      */
     private static void heapSort(int[] arr) {
-        // 将待排序的序列构建成一个大顶堆
+        // 从堆的底部（即数组的尾部）开始构建大顶堆，但底部都是叶子节点，无构建意义
+        // 因此从堆的非叶子节点开始构建，即n/2处开始构建
         for (int i = arr.length / 2; i >= 0; i--) {
             heapAdjust(arr, i, arr.length);
         }
@@ -53,7 +46,7 @@ public class HeapSort {
         for (father = arr[i]; leftChild(i) < n; i = child) {
             child = leftChild(i);
 
-            // 如果左子树小于右子树，则需要比较右子树和父节点
+            // 如果左子树小于右子树，则需要比较右子树和父节点（即从子节点中调出最大的和父节点比较）
             if (child != n - 1 && arr[child] < arr[child + 1]) {
                 child++; // 序号增1，指向右子树
             }

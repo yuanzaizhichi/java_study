@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {6, 5, 2, 7, 3, 9, 8, 4, 10, 1};
+        int[] arr = {50,10,90,30, 70,40,80,60,20};
         sort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
 
@@ -31,12 +31,12 @@ public class QuickSort {
         int j = r;
         //直到i、j相遇
         while (i < j) {
-            // 从右往左找第一个小于基数的数
+            // 依次从右往左找小于基数的数
             while (arr[j] >= p && j > i) {
                 j--;
             }
 
-            // 从左往右找第一个大于基数的数
+            // 依次从左往右找大于基数的数
             while (arr[i] <= p && j > i) {
                 i++;
             }
