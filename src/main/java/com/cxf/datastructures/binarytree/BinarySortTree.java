@@ -14,14 +14,15 @@ public class BinarySortTree {
         binarySortTree.add(2);
         binarySortTree.add(9);
         binarySortTree.add(7);
-//        binarySortTree.travel(binarySortTree.root);
-        System.out.println(binarySortTree.findNodeParent(8).data);
 
-//        Node node = binarySortTree.findNode(5);
-//        System.out.println("---------");
-//        System.out.println(node.data);
-//        System.out.println(node.left.data);
-//        System.out.println(node.right.data);
+        System.out.println("删除前： ");
+        binarySortTree.travel(binarySortTree.root);
+
+        binarySortTree.del(6);
+        System.out.println();
+
+        System.out.println("删除后： ");
+        binarySortTree.travel(binarySortTree.root);
     }
 
     private Node root;
@@ -36,7 +37,7 @@ public class BinarySortTree {
             return;
         }
         travel(node.left);
-        System.out.println(node.data + " ");
+        System.out.print(node.data + " ");
         travel(node.right);
     }
 
@@ -131,8 +132,18 @@ public class BinarySortTree {
         }
     }
 
+    /**
+     * 寻找中序遍历下node节点的后驱节点
+     * 找到以node为根的树的左边的左边的左边的...的那个节点
+     *
+     * @param node
+     * @return
+     */
     private Node findFinalLeft(Node node) {
-
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
     }
 
     /**
@@ -197,10 +208,14 @@ public class BinarySortTree {
                     }
                 }
             } else {
-                //情况3:待删除节点既有左子树又有右子树
-
+                //情况3:待删除节点既有左子树又有右子树 -> 找到中序排序下的前驱或者后驱节点（即是中序排序后，前后节点；这里寻找后节点，即是后驱节点），用它代替待删除节点
+                Node finalLeft = findFinalLeft(target);
+                int data = finalLeft.data;
+                del(data);
+                target.data = data;
             }
         }
+        return null;
     }
 
 }
