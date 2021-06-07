@@ -1,6 +1,6 @@
 package com.cxf.leetcode;
 
-public class Question_4 {
+public class Q_4 {
     public static void main(String[] args) throws Exception {
         System.out.println(Q4Solution2.findMedianSortedArrays(new int[]{1, 3}, new int[]{2, 4, 6, 8, 9, 10}));
     }

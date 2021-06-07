@@ -1,6 +1,6 @@
 package com.cxf.leetcode;
 
-public class Question_2 {
+public class Q_2 {
     public static void main(String[] args) throws Exception {
         ListNode l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
         ListNode l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))))))));

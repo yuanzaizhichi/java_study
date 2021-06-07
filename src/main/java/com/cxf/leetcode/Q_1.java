@@ -2,7 +2,7 @@ package com.cxf.leetcode;
 
 import java.util.HashMap;
 
-public class Question_1 {
+public class Q_1 {
     public static void main(String[] args) throws Exception {
         Solution2 solution = new Solution2();
         int[] ints = solution.twoSum(new int[]{3, 3}, 6);
