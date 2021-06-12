@@ -1,4 +1,4 @@
-package com.cxf.leetcode;
+package com.cxf.leetcode.other;
 
 import java.util.ArrayList;
 import java.util.List;

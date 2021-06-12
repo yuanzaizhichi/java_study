@@ -1,4 +1,4 @@
-package com.cxf.leetcode;
+package com.cxf.leetcode.other;
 
 public class Q_9 {
     public static void main(String[] args) throws Exception {
