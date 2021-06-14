@@ -1,4 +1,4 @@
-package com.cxf.leetcode.array;
+package com.cxf.leetcode.array.p_1_traversal;
 
 public class Q_495 {
     public static void main(String[] args) throws Exception {
