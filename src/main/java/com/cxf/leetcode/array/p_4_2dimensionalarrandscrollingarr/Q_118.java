@@ -9,7 +9,11 @@ public class Q_118 {
         System.out.println(generate);
     }
 
-    //找到规律遍历即可
+    /**
+     * 解法: 按规律遍历
+     * 时间复杂度: T(n) = O(n²)
+     * 空间复杂度: S(n) = O(n)
+     */
     public static List<List<Integer>> generate(int numRows) {
         List<List<Integer>> lstRes = new ArrayList<>();
         for (int i = 0; i < numRows; i++) {
