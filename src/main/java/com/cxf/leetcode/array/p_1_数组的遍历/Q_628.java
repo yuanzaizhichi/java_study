@@ -2,14 +2,14 @@ package com.cxf.leetcode.array.p_1_数组的遍历;
 
 public class Q_628 {
     public static void main(String[] args) throws Exception {
-        System.out.println(maximumProduct(new int[]{1000, 1000, 1000}));
+        System.out.println(maximumProduct(new int[]{1000, 1000, -1, -1000}));
 
     }
 
     /**
      * 求数组中能组成最大乘积的三个元素，
      * 1）不存在负数，取前3大的元素乘积
-     * 2）存在负数，要么取前3大的元素乘积，要么取前2小和前1大元素乘积
+     * 2）存在负数，要么取前3大的元素乘积，要么取前2小（形成绝对值）和前1大元素乘积
      *
      * @param nums
      * @return

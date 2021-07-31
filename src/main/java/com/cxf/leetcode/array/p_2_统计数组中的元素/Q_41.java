@@ -2,7 +2,7 @@ package com.cxf.leetcode.array.p_2_统计数组中的元素;
 
 import java.util.HashMap;
 
-public class Q_42 {
+public class Q_41 {
     public static void main(String[] args) throws Exception {
         System.out.println(firstMissingPositive2(new int[]{7, 8, 9, 11, 12}));
     }
